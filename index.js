@@ -1,3 +1,3 @@
 function sthElse() {}
 
-module.exports = () => "this is a test";
+module.exports = () => "this is a fail test";
