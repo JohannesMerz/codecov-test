@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-cache-{{ .Branch }}
+            - yarn-cache-master
+      - run:
+          name: install dependencies
+          command: yarn install --pure-lockfile --unsafe-perm
+      - save_cache:
+          key: yarn-cache-{{ .Branch }}-{{ .BuildNum }}	
+          paths:
+            - /home/circleci/.cache/yarn/v1
+      - run:
+          name: tests
+          command: yarn test
+      - run:
+          name: upload coverage
+          command: yarn coverage
