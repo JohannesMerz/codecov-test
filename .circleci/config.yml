@@ -11,14 +11,14 @@ jobs:
             - yarn-cache-master
       - run:
           name: install dependencies
-          command: yarn install --pure-lockfile --unsafe-perm
+          command: ./bin/run.sh install
       - save_cache:
           key: yarn-cache-{{ .Branch }}-{{ .BuildNum }}	
           paths:
             - /home/circleci/.cache/yarn/v1
       - run:
           name: tests
-          command: yarn test
+          command: ./bin/run.sh test
       - run:
           name: upload coverage
           command: yarn coverage

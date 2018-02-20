@@ -5,10 +5,9 @@
   "repository": "git@github.com:JohannesMerz/codecov-test.git",
   "license": "MIT",
   "dependencies": {
-    "codecov": "^3.0.0"
+    "jest": "^22.4.0"
   },
   "scripts": {
-    "test": "echo nothing here",
-    "coverage": "codecov"
+    "test": "jest --coverage"
   }
 }
