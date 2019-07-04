@@ -21,4 +21,4 @@ jobs:
           command: yarn test
       - run:
           name: upload coverage
-          command: yarn coverage
+          command: echo "yarn coverage"
